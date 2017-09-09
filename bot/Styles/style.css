@@ -1,4 +1,6 @@
-.rsc-container {
-  box-shadow: none;
-  border-radius: 0;
+.rsc {
+  &-container {
+    box-shadow: none;
+    border-radius: 0;
+  }
 }
