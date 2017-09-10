@@ -1,3 +1,6 @@
+import React from 'react';
+import List from './Elements/List';
+
 const steps = [
   {
     id: '1',
@@ -24,9 +27,13 @@ const steps = [
   {
     id: '5',
     options: [
-      { value: 'Login', label: 'Login not working?', trigger: '4' },
+      { value: 'Login', label: 'Login not working?', trigger: '6' },
       { value: 'Site is down', label: 'Site seems to be down?', trigger: '4' },
     ],
+  },
+  {
+    id: '6',
+    component: <List />,
   },
 ];
 

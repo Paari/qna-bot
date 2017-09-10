@@ -45,7 +45,7 @@ class CustomStep extends Component {
 
     return (
       <CustomStepContainer
-        className="rsc-cs"
+        className="result__component"
         style={style}
       >
         {
