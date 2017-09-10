@@ -72,6 +72,10 @@ class TextStep extends Component {
     } = step;
 
     const showAvatar = user ? !hideUserAvatar : !hideBotAvatar;
+    let bubbleClass = 'chat__bubble';
+    if (user) {
+      bubbleClass = 'chat__bubble user';
+    }
 
     return (
       <TextStepContainer
@@ -95,7 +99,7 @@ class TextStep extends Component {
           }
         </ImageContainer>
         <Bubble
-          className="rsc-ts-bubble"
+          className={bubbleClass}
           style={bubbleStyle}
           user={user}
           showAvatar={showAvatar}
