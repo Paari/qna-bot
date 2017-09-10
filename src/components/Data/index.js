@@ -34,6 +34,7 @@ const steps = [
   {
     id: '6',
     component: <List />,
+    waitAction: true,
     trigger: '7',
   },
   {

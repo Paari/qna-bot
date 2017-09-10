@@ -8,12 +8,19 @@ class List extends React.Component {
     this.state = {
       redirect: false,
       path: '',
+      trigger: false,
     };
   }
 
   componentWillReceiveProps() {
     this.setState({
       redirect: false,
+    });
+  }
+
+  triggetNext() {
+    this.setState({ trigger: true }, () => {
+      this.props.triggerNextStep();
     });
   }
 
@@ -81,11 +88,11 @@ class List extends React.Component {
         id: '6',
         options: [
           { value: 1, label: 'Yes', trigger: '2' },
-          { value: 2, label: 'No' },
+          { value: 2, label: 'No', trigger: () => this.triggetNext() },
         ],
       },
     ];
-    const { redirect } = this.state;
+    const { redirect, trigger } = this.state;
 
     return (
       <div className="result__wrapper">
