@@ -519,9 +519,8 @@ a {
 /* CHAT SECTION */
 .chat {
   &__bubble {
-    background: transparent;
-    box-shadow: none;
-    font-size: 1.2rem;
+    background: #ffffff;
+    font-size: 1rem;
     color: #303030;
 
     &.user {
@@ -534,13 +533,60 @@ a {
 /* RESULT COMPONENT */
 .result {
   &__component {
-    box-shadow: 0 8px 40px rgba(0,0,0,.1);
+    box-shadow: 0 8px 40px #fffbf1;
     margin: 0 20px;
+    margin-bottom: 30px;
     border-radius: 4px;
+    padding: 0;
+  }
+
+  &__wrapper {
+    width: 100%;
+    background: #fffbf1;
+    padding: 10px;
+    border-radius: 8px;
   }
 }
 
 
-section {
-  min-width: 700px;
+.main-list {
+  width: 50%;
+  min-width: 50%;
+  height: 100vh;
+  background: #ffffff;
+  font-size: 1rem;
+
+  &__wrapper {
+    padding: 25px;
+  }
+
+  &__faqs {
+    animation: Lmuha .3s ease forwards;
+    transform: scale(.9);
+
+    &--item {
+      background-color: #ffffff;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 6px;
+      box-shadow: 0 1px 2px 0 rgba(0,0,0,0.15);
+      transition: .3s ease-in-out;
+
+      &:hover {
+        box-shadow: 0 5px 15px rgba(49, 122, 233, 0.18);
+      }
+    }
+
+    &--title {
+      font-size: 1.3rem;
+      font-weight: 300;
+      margin: 0;
+    }
+  }
+}
+
+.go__back {
+  margin: 1.5rem 0;
+  letter-spacing: 2px;
+  font-size: .8rem;
 }

@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  BrowserRouter as Router,
   Route,
   Link,
 } from 'react-router-dom';
@@ -22,8 +21,8 @@ class Faq extends React.Component {
         <Route
           path={`/faq/${item.id}`}
           render={() => (
-            <div>
-              <Link to="/" className="go__back">Back to list</Link>
+            <div className="main-list__faqs">
+              <Link to="/" className="go__back">↩ Back to list</Link>
               <FaqContent title={item.title} content={item.content} />
             </div>
           )}
@@ -34,7 +33,7 @@ class Faq extends React.Component {
 
   renderList() {
     return this.state.pages.map(item => (
-      <div key={item.id}>
+      <div key={item.id} className="main-list__faqs">
         <List title={item.title} id={item.id} />
       </div>
     ));
@@ -42,16 +41,14 @@ class Faq extends React.Component {
 
   render() {
     return (
-      <Router>
-        <div>
-          <Route
-            path="/"
-            exact
-            render={() => (<div>{this.renderList()}</div>)}
-          />
-          {this.renderRoutes()}
-        </div>
-      </Router>
+      <div className="main-list__wrapper">
+        <Route
+          path="/"
+          exact
+          render={() => (<div>{this.renderList()}</div>)}
+        />
+        {this.renderRoutes()}
+      </div>
     );
   }
 }

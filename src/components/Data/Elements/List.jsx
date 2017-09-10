@@ -1,43 +1,101 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import ChatBot from '../../../../bot/ChatBot';
 
-const steps = [
-  {
-    id: '1',
-    message: 'You are trying to login with which service?',
-    trigger: '2',
-  },
-  {
-    id: '2',
-    options: [
-      {
-        value: 'Username/Pass',
-        label: 'Username/Password',
-        trigger: (value) => {
-          console.log(value);
-          return '4';
-        },
-      },
-      { value: 2, label: 'Clever Login', trigger: '3' },
-      { value: 3, label: 'Google Login', trigger: '3' },
-    ],
-  },
-  {
-    id: '3',
-    message: 'Wrong answer, try again.',
-    trigger: '2',
-  },
-  {
-    id: '4',
-    message: 'Awesome! You are a telepath!',
-    end: true,
-  },
-];
+class List extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      redirect: false,
+      path: '',
+    };
+  }
 
-const List = () => (
-  <ChatBot
-    steps={steps}
-  />
-);
+  componentWillReceiveProps() {
+    this.setState({
+      redirect: false,
+    });
+  }
+
+  render() {
+    const steps = [
+      {
+        id: '1',
+        message: 'You are trying to login with which service?',
+        trigger: '2',
+      },
+      {
+        id: '2',
+        options: [
+          {
+            value: 'userpass',
+            label: 'Username/Password',
+            trigger: () => {
+              this.setState({
+                redirect: true,
+                path: '/faq/3',
+              });
+              return '4';
+            },
+          },
+          {
+            value: 'clever',
+            label: 'Clever Login',
+            trigger: () => {
+              this.setState({
+                redirect: true,
+                path: '/faq/1',
+              });
+              return '4';
+            },
+          },
+          {
+            value: 'google',
+            label: 'Google Login',
+            trigger: () => {
+              this.setState({
+                redirect: true,
+                path: '/faq/2',
+              });
+              return '4';
+            },
+          },
+        ],
+      },
+      {
+        id: '3',
+        message: 'Wrong answer, try again.',
+        trigger: '2',
+      },
+      {
+        id: '4',
+        message: 'You can read through the details of the problem on the right, hope it helps you understand the problem.',
+        trigger: '5',
+      },
+      {
+        id: '5',
+        message: 'Or you can look for another login method?',
+        trigger: '6',
+      },
+      {
+        id: '6',
+        options: [
+          { value: 1, label: 'Yes', trigger: '2' },
+          { value: 2, label: 'No' },
+        ],
+      },
+    ];
+    const { redirect } = this.state;
+
+    return (
+      <div className="result__wrapper">
+        {redirect && <Redirect to={this.state.path} />}
+        <ChatBot
+          steps={steps}
+        />
+      </div>
+    );
+  }
+}
 
 export default List;

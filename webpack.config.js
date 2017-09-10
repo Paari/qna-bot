@@ -11,6 +11,7 @@ module.exports = {
     contentBase: path.join(__dirname, 'src'),
     host: '0.0.0.0',
     disableHostCheck: true,
+    historyApiFallback: true,
   },
   resolve: {
     extensions: ['.js', '.jsx', '.css'],

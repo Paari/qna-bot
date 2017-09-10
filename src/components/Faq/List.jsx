@@ -4,9 +4,9 @@ import {
 } from 'react-router-dom';
 
 const FaqList = props => (
-  <div>
+  <div className="main-list__faqs--item">
     <Link to={`/faq/${props.id}`} >
-      <h2>{props.title}</h2>
+      <h2 className="main-list__faqs--title">{props.title}</h2>
     </Link>
   </div>
 );

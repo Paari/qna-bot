@@ -9,7 +9,7 @@ const steps = [
   },
   {
     id: '2',
-    message: 'Please select a project',
+    message: 'Please select a project or browser from the list on the right 👉',
     trigger: '3',
   },
   {
@@ -34,6 +34,20 @@ const steps = [
   {
     id: '6',
     component: <List />,
+    trigger: '7',
+  },
+  {
+    id: '7',
+    message: 'or look for some other problem from the list',
+    trigger: '8',
+  },
+  {
+    id: '8',
+    options: [
+      { value: 1, label: 'Yes', trigger: '5' },
+      { value: 2, label: 'No' },
+      { value: 3, label: 'Change the project', trigger: '3' },
+    ],
   },
 ];
 
