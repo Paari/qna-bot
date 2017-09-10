@@ -5,13 +5,19 @@
 
 body {
   font-size: 15px;
+  background-color: #f5f8fb;
+}
+
+.main-wrapper {
+  display: flex;
 }
 
 .rsc {
+  width: 100%;
+
   &-container {
-    /*background-image: linear-gradient(-140deg, #333576 0%, #1D1B4A 100%);*/
     width: 100%;
-    height: 100vh;
+    background-color: transparent;
     box-shadow: none;
     border-radius: 0;
   }
@@ -21,6 +27,7 @@ body {
     height: auto;
     min-height: 20vh;
     max-height: 90vh;
+    padding-bottom: 50px;
   }
 
   &-footer {
@@ -38,8 +45,20 @@ body {
   &__element {
     background-color: transparent;
     color: inherit;
-    font-size: 1.5rem;
-    border: 1px solid #303030;
+    font-size: 1rem;
+    box-shadow: none;
+    transition: .2s ease-in;
+    padding-left: 15px;
+    padding-right: 15px;
+    border: 2px solid #317AE9;
+    color: #317AE9;
+
+    &:hover {
+      box-shadow: 1px 5px 20px #317AE9;
+      background-color: #317AE9;
+      color: #ffffff;
+      opacity: 1;
+    }
   }
 }
 
@@ -53,7 +72,22 @@ body {
     color: #303030;
 
     &.user {
-      color: #909090;
+      background-color: #317AE9;
+      color: #ffffff;
     }
   }
+}
+
+/* RESULT COMPONENT */
+.result {
+  &__component {
+    box-shadow: 0 8px 40px rgba(0,0,0,.1);
+    margin: 0 20px;
+    border-radius: 4px;
+  }
+}
+
+
+section {
+  min-width: 700px;
 }

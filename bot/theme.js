@@ -1,6 +1,6 @@
 export default {
   background: '#f5f8fb',
-  fontFamily: 'monospace',
+  fontFamily: 'sans-serif',
   headerBgColor: '#6e48aa',
   headerFontColor: '#fff',
   botBubbleColor: '#6E48AA',
